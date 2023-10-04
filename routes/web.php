@@ -32,10 +32,13 @@ Route::get('/contact', function() {
     return view('contact');
 });
 
-Route::get('/project',function() {
-    return view('projectslist');
-});
+// Route::get('/project',function() {
+//     return view('project.projectslist');
+// });
 
-Route::get('/contribute',[ProjectController::class, 'index']);
 
-Route::post('/addproject', [ProjectController::class, 'create']);
+Route::get('/projects',[ProjectController::class, 'index']);
+
+Route::get('/contribute',[ProjectController::class, 'create']);
+
+Route::post('/contribute', [ProjectController::class, 'store']);

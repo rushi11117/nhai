@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id('project_id');
             $table->string('project_name');
             $table->string('project_location')->nullable();
             $table->string('project_shapefile')->nullable();
-            $table->json('developer_authority')->default(json_encode(['NHAI']));
+            $table->json('developer_authority')->default(json_encode('NHAI'));
             $table->date('date_to_start_timeline');
             $table->text('project_description')->nullable();
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project');
+        Schema::dropIfExists('projects');
     }
 };

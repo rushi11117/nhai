@@ -88,7 +88,7 @@
                 Create a New Project
             </div>
             <div class="card-body">
-                <form action="{{url('/')}}/addproject" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/')}}/contribute" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group card">
                         <div class="card-header">
@@ -111,10 +111,10 @@
                     <div>
                         <div class="form-group card" style="z-index: 1">
                             <div class="card-header">
-                                <label for="shapefile">Shapefile</label>
+                                <label for="project_shapefile">Shapefile</label>
                             </div>
                             <div class="card-body">
-                                <input type="file" name="shapefile" class="form-control-file">
+                                <input type="file" name="project_shapefile" class="form-control-file">
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             <div>
                                 <div id="input-container" class="card-body">
                                     <div class="card-body">
-                                        <input type="text" name="organizations[]" class="form-control" required>
+                                        <input type="text" name="developer_authority[]" class="form-control" required>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-secondary" id="add-organization">Add Organization</button>
@@ -148,18 +148,18 @@
 
                     <div class="form-group card ">
                         <div class="card-header">
-                            <label for="start_of_timeline">Date To Start Timeline</label>
+                            <label for="date_to_start_timeline">Date To Start Timeline</label>
                         </div>
                         <div class="card-body">
-                            <input type="date" name="start_of_timeline" class="form-control">
+                            <input type="date" name="date_to_start_timeline" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group card">
+                    <div class="form-group card" style="flex-direction: row;">
                         <div class="card-header">
-                            <label for="description">Description</label>
+                            <label for="project_description">Description</label>
                         </div>
                         <div class="card-body">
-                            <textarea name="description" class="form-control" rows="4"></textarea>
+                            <textarea name="project_description" class="form-control" rows="4"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Create Project</button>

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project as ModelsProject;
+use App\Models\Project;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjectController extends Controller
 {
@@ -13,7 +12,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('projectform');
+        $projects = Project::all();
+        return view('project.projectslist', compact('projects'));
     }
 
     /**
@@ -21,14 +21,7 @@ class ProjectController extends Controller
      */
     public function create(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->all());
-        $project = new ModelsProject();
-        $project->project_name = $request['project_name'];
-        $project->project_location =$request['project_location'];
-        $project->start_of_timeline = $request['start_of_timeline'];   
-        
-        $project->save();
+        return view('project.projectform');
     }
 
     /**
@@ -37,6 +30,24 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+        $project = new Project();
+        $project->project_name = $request->input('project_name');
+        $project->project_location = $request->input('project_location');
+
+        if ($request->hasFile('project_shapefile')) {
+            echo $request['project_name'];
+            $file = $request->file('project_shapefile');
+            $path = $file->store('uploads', 'public');
+            $project->project_shapefile = $path;
+            // echo $file;
+        }
+
+
+        // $project->developer_authority = $request->input('developer_authority');
+        $project->date_to_start_timeline = $request->input('date_to_start_timeline');
+        $project->project_description = $request->input('project_description');
+        $project->save();
+        // return redirect()->route('/contribute');
     }
 
     /**
@@ -44,7 +55,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**

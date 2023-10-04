@@ -26,7 +26,7 @@
                         <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="project">Projects</a>
+                        <a class="nav-link" href="projects">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contribute">Contribute</a>

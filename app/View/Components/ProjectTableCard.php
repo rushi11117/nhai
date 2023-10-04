@@ -6,14 +6,17 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProjectTableCard extends Component
+class projecttablecard extends Component
 {
+    public string $project_name;
+    public string $project_location;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(string $project_name, string $project_location)
     {
-        //
+        $this->project_name = $project_name;
+        $this->project_location = $project_location;
     }
 
     /**
@@ -21,6 +24,6 @@ class ProjectTableCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.project-table-card');
+        return view('components.projecttablecard');
     }
 }

@@ -11,7 +11,10 @@ class Project extends Model
     protected $fillable = [
         'project_name',
         'project_location',
-        'start_of_timeline'
+        'project_shapefile',
+        'developer_authority',
+        'date_to_start_timeline',
+        'project_description'
     ];
 
     protected $table = 'projects';
